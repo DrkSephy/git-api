@@ -1,3 +1,5 @@
+# Module for getting a list of public repositories belonging to a User.
+
 import re
 import requests
 import simplejson as json
@@ -11,7 +13,7 @@ req = requests.get(req_url)
 # Return JSON data
 repos = json.loads(req.content)
 
-# The keys we are interested in parsing out are:
+# Sample Key:Value pair that we are interested in:
 #   'full_name': 'DrkSephy/yabe'
 
 def parse_repositories(data):
@@ -24,8 +26,8 @@ def parse_repositories(data):
 
     Returns:
     --------
-    repositories: dictionary
-        - A JSON formatted dictionary containing repository endpoints.
+    repositories: list
+        - A JSON formatted list containing repository endpoints.
     """
 
     keys = ['full_name']
@@ -36,11 +38,10 @@ def parse_repositories(data):
         for k,v in a.iteritems():
             if k in keys:
                 if re.match('(.*?)(?=\s<)', v) == None:
-                    new_list[k] = v
+                    repositories.append(v)
                 else:
                     v2 = re.match('(.*?)(?=\s<)', v)
-                    new_list[k] = v2.group() 
-        repositories.append(new_list)
+                    repositories.append(v2.group())
     return repositories
 
 data = parse_repositories(repos)
