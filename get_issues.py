@@ -16,16 +16,14 @@ import gitparsers
 #print issues
 
 
-url = "https://api.github.com/users/DrkSephy/repos"
+url = "https://api.github.com/users/DrkSephy/repos
 request = requests.get(url)
 repos = json.loads(request.content)
 repositories = gitparsers.parse_repositories(repos)
-print repositories
 
 new_list = []
 for repository in repositories:
-    req_url = "https://api.github.com/repos/" + repository + "/issues"
-    print req_url
+    req_url = "https://api.github.com/repos/" + repository + "/issues" 
     req = requests.get(req_url)
     if req.status_code == 200:
         issues = json.loads(req.content)
