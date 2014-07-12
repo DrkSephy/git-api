@@ -43,6 +43,22 @@ def get_all_issues(repositories):
             new_list.append(issues)
     return new_list
 
+# Example of getting issues from one repository
+# Get a list of issues at /DrkSephy/Deep-Learning
+data = get_issues("https://api.github.com/repos/DrkSephy/Deep-Learning/issues")
+
+# Example of getting issues from all of a user's public repositories
+# Get a list of all of DrkSephy's repositories
+url = "https://api.github.com/users/DrkSephy/repos"
+request = requests.get(url)
+repos = json.loads(request.content)
+# Parse out the URLs from all the returned JSON. Returns a list of all repositories.
+repositories = gitparsers.parse_repositories(repos)
+
+# Pass list of repositories into get_all_issues method, returns a list of all issues in all repositories. 
+all_issues = get_all_issues(repositories)
+print all_issues
+
 
 
 
