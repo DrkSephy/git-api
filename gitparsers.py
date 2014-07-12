@@ -2,27 +2,21 @@
 
 import re
 
-def parse_repositories(data, keys):
+def parse_repositories(data):
     """
     Parses returned JSON for the API call to the `repos` endpoint. 
 
     Parameters:
     ----------
     data: JSON data returned from the endpoint. 
-    keys: The keys we are interested in parsing out of the JSON.
 
     Returns:
     --------
     repositories: list
         - A JSON formatted list containing repository endpoints.
-
-    Usage: 
-        - To parse a key from a repository, supply it in the function call.
-        - For repositories, we want to parse out the 'full_name' key. 
-        - For issues in a repository, we want to parse out the 'body' key.
     """
 
-   
+    keys = ['full_name']
     repositories = []
 
     for a in data:
