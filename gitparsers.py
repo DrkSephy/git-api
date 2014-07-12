@@ -20,7 +20,6 @@ def parse_repositories(data):
     repositories = []
 
     for a in data:
-        new_list = {}
         for k,v in a.iteritems():
             if k in keys:
                 if re.match('(.*?)(?=\s<)', v) == None:

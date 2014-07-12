@@ -12,6 +12,7 @@ req_url = "https://api.github.com/users/DrkSephy/repos"
 req = requests.get(req_url)
 # Return JSON data
 repos = json.loads(req.content)
+print repos
 
 # Sample Key:Value pair that we are interested in:
 #   'full_name': 'DrkSephy/yabe'
