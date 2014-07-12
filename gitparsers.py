@@ -24,8 +24,8 @@ def parse_repositories(data):
         for k,v in a.iteritems():
             if k in keys:
                 if re.match('(.*?)(?=\s<)', v) == None:
-                    repositories.append("https://github.com/" + v)
+                    repositories.append(v)
                 else:
                     v2 = re.match('(.*?)(?=\s<)', v)
-                    repositories.append("https://github.com/" + v2.group())
+                    repositories.append(v2.group())
     return repositories
