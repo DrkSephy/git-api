@@ -18,4 +18,9 @@ This requires the following data:
 While most of this data is already provided by Github, these scripts will help with building
 our application.
 
+Modules can be written in any language for quick testing, but in the end we will be using JavaScript.
 
+Modules
+=======
+
+* `get_repositories.py`: Returns a listing of a user's public repositories. Useful for repository subscriptions in the future. 
