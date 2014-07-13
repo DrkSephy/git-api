@@ -40,11 +40,11 @@ def parse_commits(commits):
     for commit in commits:
         data = {}
         data['author'] = commit['author']['login']
+        data['commits'] = commit['total']
         parsed_authors.append(data)
     return parsed_authors
 
 print parse_commits(data)
-
-
-# TODO: Return a parsed list of authors and commits in this form:
-# commits: [ czhang: X, mk200789: Y, chessmasterhong: Z, DrkSephy: A]
+# Returns: 
+# [{'commits': 3, 'author': 'czhang'}, {'commits': 28, 'author': 'mk200789'}, 
+#  {'commits': 294, 'author': 'DrkSephy'}, {'commits': 464, 'author': 'chessmasterhong'}]
