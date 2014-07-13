@@ -26,11 +26,25 @@
 #       'followers_url': 'https://api.github.com/users/chessmasterhong/followers'
 #    }
 
+import re
 import requests
 import simplejson as json
 
 req_url = "https://api.github.com/repos/chessmasterhong/WaterEmblem/stats/contributors"
 req = requests.get(req_url)
-print req.status_code
 data = json.loads(req.content)
-print data
+
+def parse_commits(data):
+    keys = ['total']
+    commits = []
+
+    for a in data:
+        for k,v in a.iteritems():
+            if k in keys:
+                commits.append(v)
+                
+    return commits
+
+print parse_commits(data)
+
+
