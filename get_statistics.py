@@ -33,7 +33,18 @@ import simplejson as json
 req_url = "https://api.github.com/repos/DrkSephy/WaterEmblem/stats/contributors"
 req = requests.get(req_url)
 data = json.loads(req.content)
-print data
+
+def parse_commits(commits):
+    parsed_authors = []
+
+    for commit in commits:
+        data = {}
+        data['author'] = commit['author']['login']
+        parsed_authors.append(data)
+    return parsed_authors
+
+print parse_commits(data)
+
 
 # TODO: Return a parsed list of authors and commits in this form:
 # commits: [ czhang: X, mk200789: Y, chessmasterhong: Z, DrkSephy: A]
