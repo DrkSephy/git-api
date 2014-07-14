@@ -29,12 +29,13 @@ data = get_issues("https://api.github.com/repos/DrkSephy/Deep-Learning/issues")
 
 # Example of getting issues from all of a user's public repositories
 # Get a list of all of DrkSephy's repositories
-url = "https://api.github.com/users/DrkSephy/repos"
-request = requests.get(url)
+url = "https://api.github.com/users/mk200789/repos"
 repos = json.loads(request.content)
 # Parse out the URLs from all the returned JSON. Returns a list of all repositories.
 repositories = gitparsers.parse_repositories(repos)
 
+#print request
+#print "REPOSITORIES:" + str(repositories)
 
 def parse_all_issues(repos):
     """
@@ -53,7 +54,6 @@ def parse_all_issues(repos):
     keys = ['body']
     for repository in repositories:
         req_url = "https://api.github.com/repos/" + repository + "/issues"
-        req = requests.get(req_url)
         if req.status_code == 200 and req.content != '[]':
             data = json.loads(req.content)
             for a in data:
