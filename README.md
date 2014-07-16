@@ -9,11 +9,16 @@ Goals
 The end goal is to build something similar to Technetium: http://technetium.herokuapp.com/
 This requires the following data: 
     
-* Given a repository, return the number of commits made by each contributor.
-* Given a repository, return the number of comments made by each contributor. This includes 
-  comments made on code as well as issues. 
+* Given a repository, return the number of commits made by each contributor. [Done]
+* Given a repository, return the number of comments made by each contributor on all issues.
 * Given a repository, return the number of pull requests made by each contributor. 
-* Given a repository, return the number of lines of code made by each contributor. 
+* Given a repository, return the number of lines of code made by each contributor. [Done]
+* Given a repository, return the number of comments made by each contributor for all pull requests. 
+* Given a repository, return the number of comments made by each contributor for all commits. [Done?]
+* Given a repository, return the number of issues opened by each contributor. 
+* Given a repository, return the number of issues closed by each contributor.
+* Given a repository, return the number of issues assigned to each contributor. 
+* Given a repository, return all issues. [Done]
 
 While most of this data is already provided by Github, these scripts will help with building
 our application.
@@ -26,6 +31,7 @@ Modules
 * `get_repositories.py`: Returns a listing of a user's public repositories. Useful for repository subscriptions in the future. 
 * `gitparsers.py`: A set of parsers for working with data returned by the API.
 * `get_issues.py`: Returns a listing of all issues for a given user. 
+* `get_statistics.py`: Returns the number of commits for each contributor in a repository. 
 
 Notes on testing
 ================
