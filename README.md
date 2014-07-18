@@ -10,10 +10,10 @@ The end goal is to build something similar to Technetium: http://technetium.hero
 This requires the following data: 
     
 * Given a repository, return the number of commits made by each contributor. [Done]
-* Given a repository, return the number of comments made by each contributor on all issues.
+* Given a repository, return the number of comments made by each contributor on all issues. 
 * Given a repository, return the number of pull requests made by each contributor. 
 * Given a repository, return the number of lines of code made by each contributor. [Done]
-* Given a repository, return the number of comments made by each contributor for all pull requests. 
+* Given a repository, return the number of comments made by each contributor for all pull requests. [Done]
 * Given a repository, return the number of comments made by each contributor for all commits. [Done?]
 * Given a repository, return the number of issues opened by each contributor. 
 * Given a repository, return the number of issues closed by each contributor.
